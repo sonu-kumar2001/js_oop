@@ -155,7 +155,14 @@ var george = new PersonClass;
 /*** CHALLENGE 2 of 3 ***/
 
 // add code here
-
+class DeveloperClass extends PersonClass {
+  constructor(name) {
+    super(name);
+  }
+  introduce() {
+    console.log(`Hello World, my name us ${name}`)
+  }
+}
 
 
 // /********* Uncomment these lines to test your work! *********/
