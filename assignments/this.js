@@ -5,7 +5,7 @@ console.log(this === window); //Output true
 var myFunction = function() {
   console.log(this);
 };
-myFunction(); // Output 
+myFunction(); // window
 
 function f1() {
   "use strict";
@@ -18,7 +18,7 @@ function foo() {
   console.log(this === window);
 }
 
-foo(); //Output ??
+foo(); // Simple function call, window
 console.log(this === window)(
   // Output
 
@@ -42,7 +42,7 @@ var myObject = {};
 myObject.someMethod = function() {
   console.log(this);
 };
-myObject.someMethod(); //Value Of This
+myObject.someMethod(); //Value Of This = myObject
 
 // This refers to the New Instance
 

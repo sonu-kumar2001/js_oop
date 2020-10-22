@@ -1,5 +1,6 @@
 let container = document.querySelector('.container');
 let root = document.querySelector('#root');
+let score = document.querySelector('.score');
 
 class Quiz {
     constructor(questions) {
@@ -68,7 +69,7 @@ class Question {
             quiz.render();
         });
         option.addEventListener("click", (event) => {
-            answerShowcase(event, option, this);
+            checkingAnswer(event, option, this);
         });
     }
 }
@@ -82,15 +83,15 @@ let quiz = new Quiz([question1,question2]);
 
 quiz.render();
 
-function answerShowcase(event, option, obj) {
+function checkingAnswer(event, option, obj) {
     event.preventDefault();
     if (event.target.tagName == "A") {
         if(event.target.innerText === obj.getCorrectAnswer()) {
             event.target.classList.add('correct');
+            score.innerText = +score.innerText+1;
         }else {
             event.target.classList.add('wrong');
             option.children[obj.correctAnswerIndex].classList.add('correct');  
         }
     }
 }
-
